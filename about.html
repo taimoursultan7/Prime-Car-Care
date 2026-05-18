@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prime Car Care | About Us</title>
+  
+  <!-- Google Fonts: Outfit & Inter for high-end luxury feel -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <!-- CSS Styles: Self-contained premium Vanilla CSS -->
+  <style>
+    /* Reset & Base System */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    :root {
+      --bg-primary: #0a0b0d;
+      --bg-secondary: #121316;
+      --bg-card: rgba(22, 24, 29, 0.7);
+      --bg-card-hover: rgba(28, 30, 36, 0.9);
+      --accent-gold: #c5a880;
+      --accent-gold-glow: rgba(197, 168, 128, 0.4);
+      --accent-gold-dark: #8c714d;
+      --text-primary: #ffffff;
+      --text-secondary: #a0a5b0;
+      --text-muted: #626670;
+      --border-color: rgba(255, 255, 255, 0.05);
+      --border-gold: rgba(197, 168, 128, 0.2);
+      --transition-smooth: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    
+    html {
+      scroll-behavior: smooth;
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+    }
+    
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Outfit', sans-serif;
+      letter-spacing: -0.02em;
+    }
+    
+    /* Scrollbar Style */
+    ::-webkit-scrollbar {
+      width: 10px;
+    }
+    ::-webkit-scrollbar-track {
+      background: var(--bg-primary);
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #1c1e22;
+      border-radius: 5px;
+      border: 2px solid var(--bg-primary);
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--accent-gold);
+    }
+    
+    /* Header & Sticky Navbar */
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(10, 11, 13, 0.85);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border-color);
+      transition: var(--transition-smooth);
+    }
+    
+    .nav-container {
+      max-w: 1200px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 1.25rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    
+    /* Brand Logo */
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+      color: var(--text-primary);
+    }
+    
+    .brand-icon {
+      width: 2.75rem;
+      height: 2.75rem;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--bg-secondary), #1c1e22);
+      border: 1px solid var(--accent-gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 0.85rem;
+      letter-spacing: 0.1em;
+      color: var(--accent-gold);
+      box-shadow: 0 0 15px rgba(197, 168, 128, 0.2);
+    }
+    
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .brand-title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      line-height: 1.1;
+      font-family: 'Outfit', sans-serif;
+    }
+    
+    .brand-subtitle {
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.3em;
+      color: var(--accent-gold);
+      font-weight: 700;
+    }
+    
+    /* Navbar Links */
+    .nav-menu {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+    
+    .nav-link {
+      text-decoration: none;
+      color: var(--text-secondary);
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      cursor: pointer;
+      padding: 0.5rem 0;
+      position: relative;
+      transition: var(--transition-smooth);
+      display: inline-block;
+    }
+    
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: var(--accent-gold);
+      transition: var(--transition-smooth);
+      box-shadow: 0 0 8px var(--accent-gold-glow);
+    }
+    
+    .nav-link:hover {
+      color: var(--text-primary);
+    }
+    
+    .nav-link:hover::after {
+      width: 100%;
+    }
+    
+    .nav-link.active {
+      color: var(--accent-gold);
+    }
+    
+    .nav-link.active::after {
+      width: 100%;
+    }
+    
+    /* Mobile Menu Toggle */
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--text-primary);
+    }
+    
+    /* Section Templates */
+    .section-wrapper {
+      max-width: 1200px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 4rem 2rem;
+    }
+    
+    /* Hero Component */
+    .hero-banner {
+      width: 100%;
+      height: 480px;
+      position: relative;
+      border-radius: 2rem;
+      overflow: hidden;
+      margin-bottom: 4rem;
+      border: 1px solid var(--border-color);
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    }
+    
+    .hero-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform: scale(1.02);
+      transition: transform 8s ease;
+    }
+    
+    .hero-banner:hover .hero-img {
+      transform: scale(1.08);
+    }
+    
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(10, 11, 13, 0.95) 20%, rgba(10, 11, 13, 0.4) 60%, rgba(0,0,0,0) 100%);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 3rem;
+    }
+    
+    .hero-tag {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--accent-gold);
+      text-transform: uppercase;
+      letter-spacing: 0.25em;
+      margin-bottom: 0.75rem;
+      display: inline-block;
+    }
+    
+    .hero-title {
+      font-size: 3.5rem;
+      font-weight: 900;
+      line-height: 1.1;
+      margin-bottom: 1rem;
+      max-width: 800px;
+      text-transform: uppercase;
+    }
+    
+    .hero-desc {
+      font-size: 1.1rem;
+      color: var(--text-secondary);
+      max-width: 600px;
+      font-weight: 300;
+    }
+    
+    /* About Page Styles */
+    .about-row {
+      display: grid;
+      grid-template-cols: 1.1fr 0.9fr;
+      gap: 4rem;
+      align-items: center;
+      margin-bottom: 6rem;
+    }
+    
+    .about-row.reverse {
+      grid-template-cols: 0.9fr 1.1fr;
+    }
+    
+    .about-content {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+    
+    .about-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--accent-gold);
+      text-transform: uppercase;
+      letter-spacing: 0.25em;
+    }
+    
+    .about-header {
+      font-size: 2.25rem;
+      font-weight: 800;
+      line-height: 1.2;
+      text-transform: uppercase;
+    }
+    
+    .about-text {
+      color: var(--text-secondary);
+      font-size: 1rem;
+      font-weight: 300;
+      line-height: 1.7;
+    }
+    
+    .about-img-wrap {
+      border-radius: 1.75rem;
+      overflow: hidden;
+      border: 1px solid var(--border-color);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+      aspect-ratio: 4/3;
+      background-color: var(--bg-secondary);
+    }
+    
+    .about-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: var(--transition-smooth);
+    }
+    
+    .about-img-wrap:hover .about-img {
+      transform: scale(1.05);
+    }
+    
+    /* Footer Style */
+    .footer {
+      background-color: var(--bg-secondary);
+      border-top: 1px solid var(--border-color);
+      padding: 3rem 2rem;
+      margin-top: 4rem;
+    }
+    
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    
+    .footer-brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    
+    .footer-logo {
+      width: 2.25rem;
+      height: 2.25rem;
+      border-radius: 50%;
+      border: 1px solid var(--accent-gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      font-weight: 800;
+      color: var(--accent-gold);
+    }
+    
+    .footer-copyright {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      font-weight: 300;
+    }
+    
+    /* Responsive Breakpoints */
+    @media (max-width: 1024px) {
+      .about-row, .about-row.reverse {
+        grid-template-cols: 1fr;
+        gap: 2.5rem;
+      }
+      .about-row.reverse .about-img-wrap {
+        order: 2;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: block;
+      }
+      .nav-menu {
+        position: fixed;
+        top: 4.8rem;
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - 4.8rem);
+        background-color: var(--bg-primary);
+        flex-direction: column;
+        align-items: center;
+        padding: 4rem 2rem;
+        gap: 2.5rem;
+        transition: left 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        border-top: 1px solid var(--border-color);
+      }
+      .nav-menu.active {
+        left: 0;
+      }
+      .hero-banner {
+        height: 380px;
+      }
+      .hero-title {
+        font-size: 2.25rem;
+      }
+      .hero-overlay {
+        padding: 2rem;
+      }
+      .footer-content {
+        flex-direction: column;
+        gap: 1.5rem;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Sticky Luxury Header -->
+  <header class="header">
+    <div class="nav-container">
+      <!-- Logo -->
+      <a href="index.html" class="brand-logo">
+        <div class="brand-icon">PCC</div>
+        <div class="brand-text">
+          <span class="brand-title">Prime Car Care</span>
+          <span class="brand-subtitle">Automotive Styling</span>
+        </div>
+      </a>
+      
+      <!-- Desktop Navigation Menu -->
+      <ul class="nav-menu" id="nav-menu">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="about.html" class="nav-link active">About</a></li>
+        <li><a href="services.html" class="nav-link">Services</a></li>
+        <li><a href="contact.html" class="nav-link">Contact</a></li>
+      </ul>
+      
+      <!-- Mobile Toggle Button -->
+      <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Navigation Menu">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- Main Website Content Wrapper -->
+  <main>
+    <section class="section-wrapper">
+      <!-- Giant Cockpit Hero Banner -->
+      <div class="hero-banner">
+        <img class="hero-img" src="https://images.unsplash.com/photo-1562426509-5044a121aa49?auto=format&fit=crop&q=100&w=3840" alt="Cockpit detailing steering wheel detail">
+        <div class="hero-overlay">
+          <span class="hero-tag">A Heritage of Detail</span>
+          <h1 class="hero-title">Crafting Perfect Finishes</h1>
+          <p class="hero-desc">Combining luxury technology, premium ingredients, and decades of automotive refinement to maintain vehicles at absolute pinnacle aesthetics.</p>
+        </div>
+      </div>
+      
+      <!-- Alternating Row 1 -->
+      <div class="about-row">
+        <div class="about-content">
+          <span class="about-label">Artisanal Masterworks</span>
+          <h3 class="about-header">Aerodynamic Paint Corrections</h3>
+          <p class="about-text">We treat every panel with scientific precision. Our multi-stage polishing processes map paint thickness microscopically, eliminating swirl marks and deeper scratches to reveal deep gloss and absolute clarity.</p>
+        </div>
+        <div class="about-img-wrap">
+          <img class="about-img" src="https://images.unsplash.com/photo-1603584173870-7f23fdae1b7a?auto=format&fit=crop&q=100&w=2560" alt="Aggressive Audi Headlight details">
+        </div>
+      </div>
+      
+      <!-- Alternating Row 2 -->
+      <div class="about-row reverse">
+        <div class="about-img-wrap">
+          <img class="about-img" src="https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?auto=format&fit=crop&q=100&w=2560" alt="Modern luxury auto detailing garage bay with overhead LED strip lights">
+        </div>
+        <div class="about-content">
+          <span class="about-label">First-Class Diagnostics</span>
+          <h3 class="about-header">Ultra-Precision Engineering</h3>
+          <p class="about-text">Beyond aesthetics, we preserve and optimize the core performance of premium automobiles. Our technicians use high-end diagnostic computers and direct factory-approved fluids to keep systems running at optimal track specs.</p>
+        </div>
+      </div>
+      
+      <!-- Alternating Row 3 -->
+      <div class="about-row">
+        <div class="about-content">
+          <span class="about-label">The Executive Treatment</span>
+          <h3 class="about-header">Restorative Interior Luxury</h3>
+          <p class="about-text">Your cockpit is your sanctuary. We cleanse, feed, and preserve high-end fabrics, Alcantara, premium leather hides, and active trim materials using bespoke pH-neutral conditioning formulas that protect from harsh solar UV rays.</p>
+        </div>
+        <div class="about-img-wrap">
+          <img class="about-img" src="https://images.unsplash.com/photo-1552930294-6b595f4c2974?auto=format&fit=crop&q=100&w=2560" alt="Premium luxury car covered in rich, thick detailing snow foam wash bubbles">
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Premium Bottom Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <div class="footer-logo">PCC</div>
+        <span class="brand-title" style="font-size: 1rem;">Prime Car Care</span>
+      </div>
+      <div class="footer-copyright">
+        &copy; 2026 Prime Car Care Studio. Crafted for absolute perfection.
+      </div>
+    </div>
+  </footer>
+
+  <!-- Script for Mobile Responsive Navbar -->
+  <script>
+    const menuToggle = document.getElementById('menu-toggle');
+    const navMenu = document.getElementById('nav-menu');
+    
+    if (menuToggle && navMenu) {
+      menuToggle.addEventListener('click', () => {
+        navMenu.classList.toggle('active');
+      });
+    }
+  </script>
+
+</body>
+</html>

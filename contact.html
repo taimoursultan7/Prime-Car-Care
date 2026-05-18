@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prime Car Care | Contact</title>
+  
+  <!-- Google Fonts: Outfit & Inter for high-end luxury feel -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <!-- CSS Styles: Self-contained premium Vanilla CSS -->
+  <style>
+    /* Reset & Base System */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    :root {
+      --bg-primary: #0a0b0d;
+      --bg-secondary: #121316;
+      --bg-card: rgba(22, 24, 29, 0.7);
+      --bg-card-hover: rgba(28, 30, 36, 0.9);
+      --accent-gold: #c5a880;
+      --accent-gold-glow: rgba(197, 168, 128, 0.4);
+      --accent-gold-dark: #8c714d;
+      --text-primary: #ffffff;
+      --text-secondary: #a0a5b0;
+      --text-muted: #626670;
+      --border-color: rgba(255, 255, 255, 0.05);
+      --border-gold: rgba(197, 168, 128, 0.2);
+      --transition-smooth: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    
+    html {
+      scroll-behavior: smooth;
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+    }
+    
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Outfit', sans-serif;
+      letter-spacing: -0.02em;
+    }
+    
+    /* Scrollbar Style */
+    ::-webkit-scrollbar {
+      width: 10px;
+    }
+    ::-webkit-scrollbar-track {
+      background: var(--bg-primary);
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #1c1e22;
+      border-radius: 5px;
+      border: 2px solid var(--bg-primary);
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--accent-gold);
+    }
+    
+    /* Header & Sticky Navbar */
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(10, 11, 13, 0.85);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border-color);
+      transition: var(--transition-smooth);
+    }
+    
+    .nav-container {
+      max-w: 1200px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 1.25rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    
+    /* Brand Logo */
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+      color: var(--text-primary);
+    }
+    
+    .brand-icon {
+      width: 2.75rem;
+      height: 2.75rem;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--bg-secondary), #1c1e22);
+      border: 1px solid var(--accent-gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 0.85rem;
+      letter-spacing: 0.1em;
+      color: var(--accent-gold);
+      box-shadow: 0 0 15px rgba(197, 168, 128, 0.2);
+    }
+    
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .brand-title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      line-height: 1.1;
+      font-family: 'Outfit', sans-serif;
+    }
+    
+    .brand-subtitle {
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.3em;
+      color: var(--accent-gold);
+      font-weight: 700;
+    }
+    
+    /* Navbar Links */
+    .nav-menu {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+    
+    .nav-link {
+      text-decoration: none;
+      color: var(--text-secondary);
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      cursor: pointer;
+      padding: 0.5rem 0;
+      position: relative;
+      transition: var(--transition-smooth);
+      display: inline-block;
+    }
+    
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: var(--accent-gold);
+      transition: var(--transition-smooth);
+      box-shadow: 0 0 8px var(--accent-gold-glow);
+    }
+    
+    .nav-link:hover {
+      color: var(--text-primary);
+    }
+    
+    .nav-link:hover::after {
+      width: 100%;
+    }
+    
+    .nav-link.active {
+      color: var(--accent-gold);
+    }
+    
+    .nav-link.active::after {
+      width: 100%;
+    }
+    
+    /* Mobile Menu Toggle */
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--text-primary);
+    }
+    
+    /* Section Templates */
+    .section-wrapper {
+      max-width: 1200px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 4rem 2rem;
+    }
+    
+    /* Hero Component */
+    .hero-banner {
+      width: 100%;
+      height: 480px;
+      position: relative;
+      border-radius: 2rem;
+      overflow: hidden;
+      margin-bottom: 4rem;
+      border: 1px solid var(--border-color);
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    }
+    
+    .hero-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform: scale(1.02);
+      transition: transform 8s ease;
+    }
+    
+    .hero-banner:hover .hero-img {
+      transform: scale(1.08);
+    }
+    
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(10, 11, 13, 0.95) 20%, rgba(10, 11, 13, 0.4) 60%, rgba(0,0,0,0) 100%);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 3rem;
+    }
+    
+    .hero-tag {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--accent-gold);
+      text-transform: uppercase;
+      letter-spacing: 0.25em;
+      margin-bottom: 0.75rem;
+      display: inline-block;
+    }
+    
+    .hero-title {
+      font-size: 3.5rem;
+      font-weight: 900;
+      line-height: 1.1;
+      margin-bottom: 1rem;
+      max-width: 800px;
+      text-transform: uppercase;
+    }
+    
+    .hero-desc {
+      font-size: 1.1rem;
+      color: var(--text-secondary);
+      max-width: 600px;
+      font-weight: 300;
+    }
+    
+    /* Contact Page Styles */
+    .contact-split {
+      display: grid;
+      grid-template-cols: 1.1fr 0.9fr;
+      gap: 3rem;
+      align-items: stretch;
+      margin-top: 1.5rem;
+    }
+    
+    .contact-form-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 2rem;
+      padding: 3rem;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+    }
+    
+    .contact-card-header {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    
+    .contact-card-title {
+      font-size: 2rem;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+    
+    .contact-card-subtitle {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      font-weight: 300;
+    }
+    
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    
+    .form-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--text-secondary);
+      padding-left: 0.25rem;
+    }
+    
+    .form-input, .form-textarea, .form-select {
+      background-color: rgba(10, 11, 13, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 1rem;
+      padding: 1rem 1.25rem;
+      color: var(--text-primary);
+      font-family: 'Inter', sans-serif;
+      font-size: 0.95rem;
+      transition: var(--transition-smooth);
+    }
+    
+    .form-select {
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%23c5a880'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 1.25rem center;
+      background-size: 1.25rem;
+      padding-right: 3rem;
+    }
+    
+    .form-input:focus, .form-textarea:focus, .form-select:focus {
+      outline: none;
+      border-color: var(--accent-gold);
+      background-color: rgba(10, 11, 13, 0.9);
+      box-shadow: 0 0 15px rgba(197, 168, 128, 0.1);
+    }
+    
+    .form-textarea {
+      resize: none;
+      min-height: 120px;
+    }
+    
+    .form-input::placeholder, .form-textarea::placeholder {
+      color: var(--text-muted);
+    }
+    
+    .form-submit-btn {
+      background: linear-gradient(135deg, var(--accent-gold), var(--accent-gold-dark));
+      border: none;
+      color: var(--bg-primary);
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      padding: 1.1rem;
+      border-radius: 1rem;
+      cursor: pointer;
+      margin-top: 0.5rem;
+      box-shadow: 0 5px 20px rgba(197, 168, 128, 0.25);
+      transition: var(--transition-smooth);
+    }
+    
+    .form-submit-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(197, 168, 128, 0.45);
+    }
+    
+    .form-submit-btn:active {
+      transform: translateY(0);
+    }
+    
+    /* Contact Details Side */
+    .contact-details-wrap {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+    
+    .contact-info-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 2rem;
+      padding: 2.5rem;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+    
+    .contact-info-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1.25rem;
+    }
+    
+    .contact-info-icon {
+      width: 3rem;
+      height: 3rem;
+      border-radius: 1rem;
+      background: rgba(197, 168, 128, 0.08);
+      border: 1px solid rgba(197, 168, 128, 0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent-gold);
+      flex-shrink: 0;
+    }
+    
+    .contact-info-details {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+    
+    .contact-info-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--text-muted);
+    }
+    
+    .contact-info-val {
+      font-size: 1rem;
+      color: var(--text-primary);
+      font-weight: 400;
+    }
+    
+    .map-wrap {
+      flex-grow: 1;
+      border-radius: 2rem;
+      overflow: hidden;
+      border: 1px solid var(--border-color);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+      min-height: 280px;
+    }
+    
+    .map-iframe {
+      width: 100%;
+      height: 100%;
+      min-height: 280px;
+      border: 0;
+      filter: grayscale(1) invert(0.9) contrast(1.2);
+    }
+    
+    /* Footer Style */
+    .footer {
+      background-color: var(--bg-secondary);
+      border-top: 1px solid var(--border-color);
+      padding: 3rem 2rem;
+      margin-top: 4rem;
+    }
+    
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    
+    .footer-brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    
+    .footer-logo {
+      width: 2.25rem;
+      height: 2.25rem;
+      border-radius: 50%;
+      border: 1px solid var(--accent-gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      font-weight: 800;
+      color: var(--accent-gold);
+    }
+    
+    .footer-copyright {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      font-weight: 300;
+    }
+    
+    /* Toast System */
+    .toast-container {
+      position: fixed;
+      bottom: 2rem;
+      right: -400px;
+      z-index: 1000;
+      background: rgba(18, 19, 22, 0.95);
+      border: 1px solid var(--accent-gold);
+      border-radius: 1.25rem;
+      padding: 1.25rem 2rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5), 0 0 20px rgba(197, 168, 128, 0.15);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      transition: right 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    
+    .toast-container.active {
+      right: 2rem;
+    }
+    
+    .toast-icon {
+      width: 2.25rem;
+      height: 2.25rem;
+      border-radius: 50%;
+      background: rgba(197, 168, 128, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent-gold);
+      flex-shrink: 0;
+    }
+    
+    .toast-msg-wrap {
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .toast-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+    
+    .toast-desc {
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+    }
+    
+    /* Responsive Breakpoints */
+    @media (max-width: 1024px) {
+      .contact-split {
+        grid-template-cols: 1fr;
+        gap: 2.5rem;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: block;
+      }
+      .nav-menu {
+        position: fixed;
+        top: 4.8rem;
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - 4.8rem);
+        background-color: var(--bg-primary);
+        flex-direction: column;
+        align-items: center;
+        padding: 4rem 2rem;
+        gap: 2.5rem;
+        transition: left 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        border-top: 1px solid var(--border-color);
+      }
+      .nav-menu.active {
+        left: 0;
+      }
+      .hero-banner {
+        height: 380px;
+      }
+      .hero-title {
+        font-size: 2.25rem;
+      }
+      .hero-overlay {
+        padding: 2rem;
+      }
+      .contact-form-card {
+        padding: 2rem;
+      }
+      .footer-content {
+        flex-direction: column;
+        gap: 1.5rem;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Sticky Luxury Header -->
+  <header class="header">
+    <div class="nav-container">
+      <!-- Logo -->
+      <a href="index.html" class="brand-logo">
+        <div class="brand-icon">PCC</div>
+        <div class="brand-text">
+          <span class="brand-title">Prime Car Care</span>
+          <span class="brand-subtitle">Automotive Styling</span>
+        </div>
+      </a>
+      
+      <!-- Desktop Navigation Menu -->
+      <ul class="nav-menu" id="nav-menu">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="about.html" class="nav-link">About</a></li>
+        <li><a href="services.html" class="nav-link">Services</a></li>
+        <li><a href="contact.html" class="nav-link active">Contact</a></li>
+      </ul>
+      
+      <!-- Mobile Toggle Button -->
+      <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Navigation Menu">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- Main Website Content Wrapper -->
+  <main>
+    <section class="section-wrapper">
+      <!-- Contact Page Hero -->
+      <div class="hero-banner">
+        <img class="hero-img" src="https://images.unsplash.com/photo-1542282088-fe8426682b8f?auto=format&fit=crop&q=100&w=3840" alt="Beautiful dark hypercar reflection">
+        <div class="hero-overlay">
+          <span class="hero-tag">Liaise with Advisors</span>
+          <h1 class="hero-title">Establish Your Booking</h1>
+          <p class="hero-desc">Secure a slot in our state-of-the-art detailing bay. Fill out the consultation request below, or connect with our support line directly.</p>
+        </div>
+      </div>
+      
+      <!-- Contact Grid Layout -->
+      <div class="contact-split">
+        <!-- Left side: Deluxe Input Form -->
+        <div class="contact-form-card">
+          <div class="contact-card-header">
+            <h3 class="contact-card-title">Request Consult</h3>
+            <p class="contact-card-subtitle">Complete your vehicle details and a master detailer will reach out shortly.</p>
+          </div>
+          
+          <form class="contact-form" id="consultation-form" onsubmit="handleFormSubmit(event)">
+            <div class="form-group">
+              <label class="form-label" for="user-name">Your Full Name</label>
+              <input class="form-input" type="text" id="user-name" placeholder="E.g., Alexander Mercer" required>
+            </div>
+            
+            <div class="form-group">
+              <label class="form-label" for="user-email">Email Address</label>
+              <input class="form-input" type="email" id="user-email" placeholder="E.g., alex@mercer.com" required>
+            </div>
+            
+            <div class="form-group">
+              <label class="form-label" for="service-select">Inquiry Package</label>
+              <select class="form-select" id="service-select" required>
+                <option value="" disabled selected>Select program package...</option>
+                <option value="Premium Car Service">Premium Car Service ($450+)</option>
+                <option value="Detailing & Cleaning">Detailing & Cleaning ($800+)</option>
+                <option value="Diagnostics & Repair">Diagnostics & Repair ($1,500+)</option>
+                <option value="Custom Project Inquiry">Custom Project Inquiry (Bespoke)</option>
+              </select>
+            </div>
+            
+            <div class="form-group">
+              <label class="form-label" for="user-message">Vehicle Make, Model & Message</label>
+              <textarea class="form-textarea" id="user-message" placeholder="Include year, paint condition, or special styling goals..." required></textarea>
+            </div>
+            
+            <button class="form-submit-btn" type="submit">Send Consultation Inquiry</button>
+          </form>
+        </div>
+        
+        <!-- Right side: Info Cards + Map -->
+        <div class="contact-details-wrap">
+          <div class="contact-info-card">
+            <!-- Item 1: Location -->
+            <div class="contact-info-item">
+              <div class="contact-info-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                </svg>
+              </div>
+              <div class="contact-info-details">
+                <span class="contact-info-label">Signature Studio HQ</span>
+                <span class="contact-info-val">Ichra Bazar, Lahore, Pakistan</span>
+              </div>
+            </div>
+            
+            <!-- Item 2: Phone -->
+            <div class="contact-info-item">
+              <div class="contact-info-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h2.28a1 1 0 01.94.725l.548 2.2a1 1 0 01-.252.834L7.75 6.44a10.59 10.59 0 005.356 5.356l1.285-1.286a1 1 0 01.834-.253l2.2.549a1 1 0 01.725.94V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                </svg>
+              </div>
+              <div class="contact-info-details">
+                <span class="contact-info-label">Direct Concierge</span>
+                <span class="contact-info-val">+92 (42) 555-7890</span>
+              </div>
+            </div>
+            
+            <!-- Item 3: Hours -->
+            <div class="contact-info-item">
+              <div class="contact-info-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+              <div class="contact-info-details">
+                <span class="contact-info-label">Operation Hours</span>
+                <span class="contact-info-val">Mon - Sat: 9:00 AM - 7:00 PM</span>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Dark Grayscale Map Embed -->
+          <div class="map-wrap">
+            <iframe 
+              class="map-iframe"
+              src="https://maps.google.com/maps?q=Ichra%20Bazar,%20Lahore,%20Pakistan&t=&z=15&ie=UTF8&iwloc=&output=embed" 
+              allowfullscreen="" 
+              loading="lazy" 
+              referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Premium Bottom Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <div class="footer-logo">PCC</div>
+        <span class="brand-title" style="font-size: 1rem;">Prime Car Care</span>
+      </div>
+      <div class="footer-copyright">
+        &copy; 2026 Prime Car Care Studio. Crafted for absolute perfection.
+      </div>
+    </div>
+  </footer>
+
+  <!-- Deluxe Alert Toast Popup -->
+  <div class="toast-container" id="toast-notif">
+    <div class="toast-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+      </svg>
+    </div>
+    <div class="toast-msg-wrap">
+      <span class="toast-title" id="toast-title">Submission Sent</span>
+      <span class="toast-desc" id="toast-desc">We have registered your preference package.</span>
+    </div>
+  </div>
+
+  <!-- JavaScript: Mobile Menu, Toast Engine & Auto select query parameter on load -->
+  <script>
+    // 1. Mobile Menu Toggle
+    const menuToggle = document.getElementById('menu-toggle');
+    const navMenu = document.getElementById('nav-menu');
+    
+    if (menuToggle && navMenu) {
+      menuToggle.addEventListener('click', () => {
+        navMenu.classList.toggle('active');
+      });
+    }
+    
+    // 2. Toast Notifications Engine
+    function triggerToast(title, desc) {
+      const toast = document.getElementById('toast-notif');
+      const tTitle = document.getElementById('toast-title');
+      const tDesc = document.getElementById('toast-desc');
+      
+      if (toast && tTitle && tDesc) {
+        tTitle.textContent = title;
+        tDesc.textContent = desc;
+        
+        toast.classList.add('active');
+        
+        // Retract after 4.5 seconds
+        setTimeout(() => {
+          toast.classList.remove('active');
+        }, 4500);
+      }
+    }
+    
+    // 3. Contact Consultation Form Submissions
+    function handleFormSubmit(event) {
+      event.preventDefault();
+      
+      const nameVal = document.getElementById('user-name').value.trim();
+      const serviceVal = document.getElementById('service-select').value;
+      
+      if (nameVal && serviceVal) {
+        // Trigger Toast Feedback
+        triggerToast(
+          "Consultation Requested!",
+          `Thank you, ${nameVal}! Our advisors will email you regarding ${serviceVal} soon.`
+        );
+        
+        // Reset inputs
+        document.getElementById('consultation-form').reset();
+      }
+    }
+
+    // 4. On-Load Query Parameter Reading
+    window.addEventListener('DOMContentLoaded', () => {
+      const params = new URLSearchParams(window.location.search);
+      const pkg = params.get('package');
+      if (pkg) {
+        const selectBox = document.getElementById('service-select');
+        if (selectBox) {
+          // Select correct program option matching query param
+          for (let option of selectBox.options) {
+            if (option.value.toLowerCase().includes(pkg.toLowerCase())) {
+              selectBox.value = option.value;
+              break;
+            }
+          }
+          
+          // Set focus on model textarea for smoother client booking
+          const textarea = document.getElementById('user-message');
+          if (textarea) {
+            textarea.placeholder = `Tell us more about your car and preferred slot for ${pkg}...`;
+            textarea.focus();
+          }
+        }
+      }
+    });
+  </script>
+
+</body>
+</html>
